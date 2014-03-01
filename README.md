@@ -69,6 +69,9 @@ update操作
 高级查询
 ======
 where过滤查询
-  $table->where(array(‘age’=>20));//只选择age等于20的记录
-  $table->where(‘age=%i’,20);//只选择age等于20的记录
-  $table->where(‘name=%s’,’john’);//只选择name等于’john’的记录
+
+$table->where(array(‘age’=>20));//只选择age等于20的记录
+
+$table->where(‘age=%i’,20);//只选择age等于20的记录
+
+$table->where(‘name=%s’,’john’);//只选择name等于’john’的记录
