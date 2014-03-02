@@ -6,7 +6,6 @@ Daject初始化
 ======
 为了能够正常使用Daject查询数据，我们需要先对Daject进行初始化。
 
------------------------
     //新增一个数据库
     DajectConfig::addDatabase('master', 'mysql', 'localhost', 'root', 'your_password', 'your_database_name', 'utf8');
     //设置当前数据库
@@ -37,27 +36,25 @@ Record模型
 
 DajectRecordObject对象
 
-$record = new DajectRecordObject($table_name,$pkeys_array);
+    $record = new DajectRecordObject($table_name,$pkeys_array);
 
 继承于DajectRecordBase的对象
 
-　　$recortd = new Example($pkeys_array);
+    $recortd = new Example($pkeys_array);
 
 判断记录是否存在
 
-$exist = $record->exist();//判断记录是否存在
+    $exist = $record->exist();//判断记录是否存在
 
 读取数据
 
-$name= $record->name;//读取name字段
-
-$data = $record->fetch();//读取所有字段
+    $name= $record->name;//读取name字段
+    $data = $record->fetch();//读取所有字段
 
 更新和创建数据
 
-　　$record->price= 20; //将price字段的值修改为20
-
-　　$record->save();//保存数据,如果记录（sn为1）不存在，则自动创建(sn等于1，price为20的）记录，如果数据存在，则直接将price修改为20
+    $record->price= 20; //将price字段的值修改为20
+    $record->save();//保存数据,如果记录（sn为1）不存在，则自动创建(sn等于1，price为20的）记录，如果数据存在，则直接将price修改为20
 　　
 
 提醒：$record->save()语句一般情况下可省略，因为在系统进行垃圾回收（$record变量生命周期结束)时,该语句会被自动调用，如果你想在$record变量生命周期结束前更新数据，则应该加入此行代码
@@ -69,11 +66,11 @@ Table模型
 
 DajectTableObject对象
 
-　　$table = new DajectTableObject($table_name,$keys_array);
+    $table = new DajectTableObject($table_name,$keys_array);
 
 继承于DajectTableBase的对象
 
-　　$table = new Example($keys_array);
+    $table = new Example($keys_array);
 　　
 　　
 　　
@@ -83,29 +80,24 @@ DajectTableObject对象
 ======
 select操作
 
-　　$table->select();//选择所有符合条件的记录
-
-　　$table->select(n);//选择符合条件的前10条记录
-
-　　$table->select(n,offset);//跳过前offset条记录，选择后面符合条件的n条记录
+    $table->select();//选择所有符合条件的记录
+    $table->select(n);//选择符合条件的前10条记录
+    $table->select(n,offset);//跳过前offset条记录，选择后面符合条件的n条记录
 
 delete操作
 
-　　$table->delete();//删除所有符合条件的记录
-
-　　$table->delete(n);//删除符合条件的前n条记录
+    $table->delete();//删除所有符合条件的记录
+    $table->delete(n);//删除符合条件的前n条记录
 
 insert操作
 
-　　$data = array('name'=>'your name','age'=>20);
-
-　　$table->insert($data);
+    $data = array('name'=>'your name','age'=>20);
+    $table->insert($data);
 
 update操作
 
-　　$data = array('age'=>30);
-
-　　$table->update($data);
+    $data = array('age'=>30);
+    $table->update($data);
 　　
 　　
 　　
@@ -116,8 +108,6 @@ update操作
 ======
 where过滤查询
 
-$table->where(array('age'=>20));//只选择age等于20的记录
-
-$table->where('age=%i',20);//只选择age等于20的记录
-
-$table->where('name=%s','john');//只选择name等于'john'的记录
+    $table->where(array('age'=>20));//只选择age等于20的记录
+    $table->where('age=%i',20);//只选择age等于20的记录
+    $table->where('name=%s','john');//只选择name等于'john'的记录
