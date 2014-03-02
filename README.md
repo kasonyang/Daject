@@ -6,6 +6,15 @@ Daject初始化
 ======
 为了能够正常使用Daject查询数据，我们需要先对Daject进行初始化。
 
+-----------------------
+    //新增一个数据库
+    DajectConfig::addDatabase('master', 'mysql', 'localhost', 'root', 'your_password', 'your_database_name', 'utf8');
+    //设置当前数据库
+    DajectConfig::setDatabase('master', 'master');
+    //设置当前数据库前缀
+    DajectConfig::setTablePrefix('');
+    
+
 Daject的数据模型
 ======
 Daject定义了两种数据模型。
